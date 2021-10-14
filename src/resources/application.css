@@ -1,0 +1,56 @@
+* {
+    -fx-primary-color: #577590;
+    -fx-secondary-color: #43AA8B;
+    -fx-bg-color: #faf3dd;
+}
+
+.root {
+    -fx-background-color: -fx-bg-color;
+}
+
+.label {
+    -fx-text-fill: -fx-primary-color;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-padding: 8 35 15 35;
+    -fx-background-insets: 0, 0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #364959 0%, #2e3e4d 100%),
+    #3d5366,
+    #364959,
+    radial-gradient(center 50% 50%, radius 100%, #577590, #6687a3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.75), 4, 0, 0, 1);
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+    -fx-text-fill: "white";
+}
+
+.button:hover {
+    /*-fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #3d5366 0%, #364959 100%),*/
+    /*#3d5366,*/
+    /*#364959,*/
+    /*radial-gradient(center 50% 50%, radius 100%, #7391ab, #809bb3);*/
+    -fx-opacity: 80%;
+}
+
+.buttonCorrect {
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #577f39 0%, #4d7133 100%),
+    #618d3f,
+    #6b9b46,
+    radial-gradient(center 50% 50%, radius 100%, #89b964, #90be6d);
+}
+
+.buttonIncorrect {
+    -fx-background-color: linear-gradient(from 0% 93% to 0% 100%, #da070a 0%, #c60609 100%),
+    #f81215,
+    #f82529,
+    radial-gradient(center 50% 50%, radius 100%, #F94144, #FA6163);
+}
+
+.button:pressed {
+    -fx-padding: 10 35 13 35;
+    -fx-background-insets: 2 0 0 0, 2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
