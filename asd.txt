@@ -1,0 +1,8 @@
+Hello
+today I set out to create a little program to approximate the area under a curve
+using, first rectangles, then trapezoids and deriving the trapezoid rule from it.
+This video should help you get a better idea of what integration really is and
+I recommend you follow along, maybe code the same project but in a different language
+like python with matplotlib and numpy. This is guaranteed to help you solidify your knowledge
+When I first started learning calculus, programming these concepts very much helped me reach
+a greater understanding of the subject
