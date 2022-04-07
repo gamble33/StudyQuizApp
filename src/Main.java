@@ -1,4 +1,4 @@
-import controllers.Controller;
+import controllers.QuestionController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Main extends Application {
 
     private Scene scene;
-    private Controller controller;
+    private QuestionController controller;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,8 +23,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        controller = new Controller(scene, root);
-        controller.execute();;
+        controller = new QuestionController(scene, root);
 
 
 

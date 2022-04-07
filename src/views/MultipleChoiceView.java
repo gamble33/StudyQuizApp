@@ -14,12 +14,11 @@ import utils.TimeUtils;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class MultipleChoiceView implements QuestionView {
+public class MultipleChoiceView extends View implements QuestionView {
 
     private final MultipleChoiceQuestion multipleChoiceQuestion;
     private final MultipleChoiceButton[] buttons;
     private AnswerCallback callback;
-    private VBox vbox;
     private int wrongGuesses;
 
     private final int answerDelay = 200;
@@ -53,15 +52,9 @@ public class MultipleChoiceView implements QuestionView {
 
     private void onAnswer(boolean correctAnswer) {
         TimeUtils.setTimeout(() -> {
-            callback.run(correctAnswer);
             rollbackShow();
+            callback.run(correctAnswer);
         }, answerDelay);
-    }
-
-    private void rollbackShow() {
-        for (Button btn : buttons) {
-            vbox.getChildren().remove(btn);
-        }
     }
 
     @Override

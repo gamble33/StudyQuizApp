@@ -13,11 +13,10 @@ import utils.TimeUtils;
 
 import java.io.FileInputStream;
 
-public class LabelDiagramView implements QuestionView {
+public class LabelDiagramView extends View implements QuestionView {
 
     private final LabelDiagramQuestion question;
     private AnswerCallback callback;
-    private VBox vbox;
 
     public LabelDiagramView(LabelDiagramQuestion question) {
         this.question = question;
@@ -28,11 +27,6 @@ public class LabelDiagramView implements QuestionView {
             rollbackShow();
             callback.run(correctAnswer);
         }, 200);
-    }
-
-    private void rollbackShow() {
-        // todo: fix removing all elements.
-        vbox.getChildren().remove(0, vbox.getChildren().size());
     }
 
     @Override

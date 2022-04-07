@@ -4,14 +4,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import interfaces.IQuestion;
-import models.MultipleChoiceQuestion;
-import utils.QuestionDatabaseReader;
 import utils.QuestionFileReader;
-import views.MultipleChoiceView;
+import views.MainMenuView;
 
 import java.util.List;
 
-public class Controller {
+public class QuestionController {
 
     private int questionIndex = 0;
     private final List<IQuestion> questions;
@@ -19,11 +17,12 @@ public class Controller {
     private final Parent root;
     private final int availableScore;
     private final Label scoreLabel;
+    private final MainMenuView mainMenuView;
 
     private int score;
 
 
-    public Controller(Scene scene, Parent root) throws Exception {
+    public QuestionController(Scene scene, Parent root) throws Exception {
         this.root = root;
 
         questions = new QuestionFileReader().getQuestions();
@@ -31,6 +30,15 @@ public class Controller {
         this.availableScore = questions.size();
         this.scoreLabel = ((Label) scene.lookup("#labelScore"));
         updateScoreBoard();
+
+        mainMenuView = new MainMenuView();
+        showMainMenu();
+    }
+
+    public void showMainMenu() {
+        mainMenuView.show(scene, (addPoint) -> {
+            execute();
+        });
     }
 
     private void updateScoreBoard() {
@@ -42,7 +50,7 @@ public class Controller {
     }
 
     public void execute() {
-        if (questionIndex == questions.size()){
+        if (questionIndex == questions.size() - 1){
             showEndScreen();
             return;
         }

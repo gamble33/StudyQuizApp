@@ -10,11 +10,10 @@ import interfaces.QuestionView;
 import javafx.scene.Scene;
 import utils.TimeUtils;
 
-public class ShortAnswerView implements QuestionView {
+public class ShortAnswerView extends View implements QuestionView {
 
     private final ShortAnswerQuestion question;
     private AnswerCallback callback;
-    private VBox vbox;
 
     public ShortAnswerView(ShortAnswerQuestion question) {
         this.question = question;
@@ -25,11 +24,6 @@ public class ShortAnswerView implements QuestionView {
             rollbackShow();
             callback.run(correctAnswer);
         }, 200);
-    }
-
-    private void rollbackShow() {
-        // todo: fix removing all elements.
-        vbox.getChildren().remove(0, vbox.getChildren().size());
     }
 
     @Override
